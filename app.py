@@ -6,6 +6,20 @@ import random
 import hashlib
 import time
 
+# --- CUSTOM OG METADATA FOR LINKEDIN/SOCIAL SHARING ---
+# Injects proper Open Graph tags so LinkedIn shows premium preview card
+st.markdown("""
+    <head>
+        <meta property="og:title" content="ComplyFlow AI | VAT Gap Scan & Compliance Demo" />
+        <meta property="og:description" content="See the AI Production Readiness Architecture in action. Validate ZATCA/FTA compliance in milliseconds." />
+        <meta property="og:image" content="https://raw.githubusercontent.com/maalikconsultant1/complyflow-regops-sandbox/main/assets/complyflow-og.png" />
+        <meta property="og:url" content="https://bit.ly/AI-Compliance-Demo" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+""", unsafe_allow_html=True)
+# -----------------------------------------------------
+
 # --- CORE ENGINE LOGIC (Combined for stability) ---
 REGULATORY_RULES = {
     "SAMA_CSF": "Data must not leave KSA residency boundaries.",
@@ -31,7 +45,7 @@ def intercept_and_validate(payload):
 
 # --- APP UI LOGIC ---
 fake = Faker()
-st.set_page_config(page_title="ComplyFlow RegOps Sandbox", layout="wide", page_icon="🛡️")
+st.set_page_config(page_title="ComplyFlow AI | VAT Gap Scan", layout="wide", page_icon="🛡️")
 
 st.title("🛡️ ComplyFlow AI: RegOps Public Sandbox")
 st.markdown("Welcome to the ComplyFlow RegOps OS. This sandbox demonstrates how our middleware intercepts autonomous AI agent actions, validates them against SAMA CSF and UAE PDPL schemas in milliseconds, and generates a deterministic, cryptographic audit trail.")
